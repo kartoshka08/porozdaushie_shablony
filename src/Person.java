@@ -1,6 +1,6 @@
 import java.util.OptionalInt;
 
-public class Person {
+public class Person extends PersonBuilder {
     protected final String name;
     protected final String surname;
     protected int age;
@@ -79,9 +79,13 @@ public class Person {
 //    @Override
 //    public int hashCode() { /*...*/ }
 
-    public PersonBuilder newChildBuilder() {
+    public PersonBuilder newChildBuilder() throws IllegalAccessException {
         PersonBuilder childPers = new PersonBuilder();
-        childPers.setSurname(this.surname).setName(PersonBuilder.name).setAge(PersonBuilder.age).setAddress(PersonBuilder.adress).build();
+        childPers.setSurname(this.surname)
+                .setName(this.name)
+                .setAge(this.age)
+                .setAddress(this.adress)
+                .build();
         return childPers;
     }
 }
