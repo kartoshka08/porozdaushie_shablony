@@ -1,13 +1,12 @@
 public class PersonBuilder {
-    protected String name;
+    protected String name = "";
     protected String surname;
     protected int age;
     protected String adress;
     protected PersonBuilder person;
 
-
     public PersonBuilder setName(String name) {
-        person.name = name;
+        person.name = this.name;
         return person;
     }
 
@@ -27,7 +26,7 @@ public class PersonBuilder {
 
     public Person build() throws IllegalAccessException{
         PersonBuilder newPers = new PersonBuilder();
-        newPers.setName(person.name)
+        newPers.setName(this.name)
                 .setSurname(person.surname)
                 .setAge(person.age)
                 .setAddress(person.adress);
