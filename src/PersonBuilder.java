@@ -1,36 +1,32 @@
-public class PersonBuilder {
+public class PersonBuilder{
     protected String name = "";
     protected String surname;
     protected int age;
     protected String adress;
-    protected PersonBuilder person;
 
     public PersonBuilder setName(String name) {
-        person.name = this.name;
-        return person;
+        this.name = name;
+        return this;
     }
 
     public PersonBuilder setSurname(String surname) {
-        person.surname = surname;
-        return person;
+        this.surname = surname;
+        return this;
     }
     public PersonBuilder setAge(int age) {
-        person.age = age;
-        return person;
+       this.age = age;
+       return this;
     }
 
     public PersonBuilder setAddress(String address) {
-        person.adress = address;
-        return person;
+        this.adress = address;
+        return this;
     }
 
     public Person build() throws IllegalAccessException{
-        PersonBuilder newPers = new PersonBuilder();
-        newPers.setName(this.name)
-                .setSurname(person.surname)
-                .setAge(person.age)
-                .setAddress(person.adress);
-        Person person1 = (Person) newPers;
-        return person1;
+        Person newPers = new Person(this.name,this.surname);
+        newPers.setAge(this.age)
+                .setAddress(this.adress);
+        return newPers;
     }
 }

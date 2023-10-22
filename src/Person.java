@@ -69,11 +69,11 @@ public class Person extends PersonBuilder {
 
     @Override
     public String toString() {
-        System.out.println("Name: " + getName());
-        System.out.println("Surname: " + getSurname());
-        System.out.println("Age: " + getAge());
-        System.out.println("Address: " + getAddress());
-        return " ";
+//        System.out.println("Name: " + getName());
+//        System.out.println("Surname: " + getSurname());
+//        System.out.println("Age: " + getAge());
+//        System.out.println("Address: " + getAddress());
+        return name;
     }
 
 //    @Override
